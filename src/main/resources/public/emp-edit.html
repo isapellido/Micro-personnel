@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../css/xadmin.css">
+    <script src="../lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/xadmin.js"></script>
+    <script type="text/javascript" src="../data/selectData.js"></script>
+</head>
+
+<body>
+<div class="layui-fluid ">
+    <div class="layui-row layui-card">
+        <div class="site-text site-block">
+            <div class="layui-form  layui-col-space5"  lay-filter="example">
+                <div class="layui-form-item"></div>
+                <div class="layui-form-item">
+
+                    <label for="name" class="layui-form-label">
+                        <span class="x-red">*</span>雇员姓名</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="name" name="name" placeholder="请输入雇员姓名" required="" lay-verify="required"
+                               autocomplete="off" class="layui-input">
+                        <input type="hidden" name="id" />
+                    </div>
+
+                    <label class="layui-form-label">性别</label>
+                    <div class="layui-input-inline">
+                        <input type="radio" name="gender" value="男" title="男">
+                        <div class="layui-unselect layui-form-radio">
+                            <i class="layui-anim layui-icon"></i><div>男</div></div>
+                        <input type="radio" name="gender" value="女" title="女" checked="">
+                        <div class="layui-unselect layui-form-radio layui-form-radioed">
+                            <i class="layui-anim layui-icon"></i><div>女</div></div>
+                    </div>
+
+                    <label for="birthday" class="layui-form-label">
+                        <span class="x-red">*</span>出生日期</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input time" id="birthday" name="birthday" lay-verify="required|date" >
+                    </div>
+
+                    <label for="politic" class="layui-form-label">
+                        <span class="x-red">*</span>政治面貌</label>
+                    <div class="layui-input-inline">
+                        <select id="politic" name="politicid">
+                            <option value="0">请选择</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="layui-form-item">
+                    <label for="nation" class="layui-form-label">
+                        <span class="x-red">*</span>民族</label>
+                    <div class="layui-input-inline">
+                        <select id="nation" name="nationid" lay-verify="required">
+                            <option value="0">请选择</option>
+                        </select>
+                    </div>
+
+                    <label for="nativeplace" class="layui-form-label">
+                        <span class="x-red">*</span>籍贯</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="nativeplace" name="nativeplace"  lay-verify="required"
+                               autocomplete="off" class="layui-input">
+                    </div>
+
+                    <label for="address" class="layui-form-label">
+                        <span class="x-red">*</span>联系地址</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="address" name="address" lay-verify="required"
+                               autocomplete="off" class="layui-input">
+                    </div>
+
+                    <label for="email" class="layui-form-label">
+                        <span class="x-red">*</span>电子邮箱</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="email" name="email" lay-verify="required | email"
+                               autocomplete="off" class="layui-input">
+                    </div>
+
+                </div>
+
+                <div class="layui-form-item">
+                    <label for="posid" class="layui-form-label">
+                        <span class="x-red">*</span>职位</label>
+                    <div class="layui-input-inline">
+                        <select id="posid" name="posid">
+                            <option value="0">请选择</option>
+                        </select>
+                    </div>
+
+                    <label for="joblevel" class="layui-form-label">
+                        <span class="x-red">*</span>职称</label>
+                    <div class="layui-input-inline">
+                        <select id="joblevel" name="joblevelid">
+                            <option value="0">请选择</option>
+                        </select>
+                    </div>
+
+                    <label for="dept" class="layui-form-label">
+                        <span class="x-red">*</span>所属部门</label>
+                    <div class="layui-input-inline">
+                        <select id="dept" name="departmentid">
+                            <option value="0">请选择</option>
+                        </select>
+                    </div>
+
+                    <label for="phone" class="layui-form-label">
+                        <span class="x-red">*</span>电话号码</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="phone" name="phone" lay-verify="required | phone"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+
+                <div class="layui-form-item">
+                    <label for="tiptopdegree" class="layui-form-label">
+                        <span class="x-red">*</span>学历</label>
+                    <div class="layui-input-inline">
+                            <input type="text" id="tiptopdegree" name="tiptopdegree" lay-verify="required"
+                                   autocomplete="off" class="layui-input">
+                    </div>
+
+                    <label for="school" class="layui-form-label">
+                        <span class="x-red">*</span>毕业院校</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="school" name="school" lay-verify="required"
+                               autocomplete="off" class="layui-input">
+                    </div>
+
+                    <label for="specialty" class="layui-form-label">
+                        <span class="x-red">*</span>专业</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="specialty" name="specialty" lay-verify="required"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label for="begindate" class="layui-form-label">
+                        <span class="x-red">*</span>入职日期</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input time" id="begindate" name="begindate" lay-verify="required|date">
+                    </div>
+
+                    <label for="conversiontime" class="layui-form-label">
+                        <span class="x-red">*</span>转正日期</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input time" id="conversiontime" name="conversiontime" lay-verify="required|date">
+                    </div>
+
+                    <label for="begincontract" class="layui-form-label">
+                        <span class="x-red">*</span>合同起始日期</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input time" id="begincontract" name="begincontract" lay-verify="required|date">
+                    </div>
+
+                    <label for="endcontract" class="layui-form-label">
+                        <span class="x-red">*</span>合同终止日期</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input time" id="endcontract" name="endcontract" lay-verify="required|date">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label for="idcard" class="layui-form-label">
+                        <span class="x-red">*</span>身份证号码</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" id="idcard" name="idcard" lay-verify="identity|required">
+                    </div>
+
+                    <label class="layui-form-label">
+                        <span class="x-red">*</span>聘用形式</label>
+                    <div class="layui-input-inline">
+                        <input type="radio" name="engageform" value="1" title="劳务合同">
+                        <div class="layui-unselect layui-form-radio">
+                            <i class="layui-anim layui-icon"></i><div>劳务合同</div>
+                        </div>
+                        <input type="radio" name="engageform" value="2"  checked="" title="劳动合同">
+                        <div class="layui-unselect layui-form-radio layui-form-radioed">
+                            <i class="layui-anim layui-icon"></i><div>劳动合同</div>
+                        </div>
+                    </div>
+
+
+                    <label class="layui-form-label">
+                        <span class="x-red">*</span>婚姻状况</label>
+                    <div class="layui-input-inline">
+                        <input type="radio" name="wedlock" value="未婚" title="未婚" checked="checked">
+                        <div class="layui-unselect layui-form-radio">
+                            <i class="layui-anim layui-icon"></i><div>未婚</div></div>
+                        <input type="radio" name="wedlock" value="已婚" title="已婚" >
+                        <div class="layui-unselect layui-form-radio layui-form-radioed">
+                            <i class="layui-anim layui-icon"></i><div>已婚</div></div>
+                        <input type="radio" name="wedlock" value="离异" title="离异" >
+                        <div class="layui-unselect layui-form-radio layui-form-radioed">
+                            <i class="layui-anim layui-icon"></i><div>丧偶</div></div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit="" lay-filter="add">更新雇员信息</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    /**
+     *  信息编辑页面
+     *  1. 需要根据id查询雇员的信息
+     *         这个雇员的id怎么获取到？
+     */
+    function getQueryVariable(variable){
+        let query = window.location.search.substring(1)
+        let vars = query.split("&")
+        for(let i=0; i< vars.length; i++){
+            let pair = vars[i].split("=")   // id=1948
+            if( pair[0] == variable){
+                return pair[1]
+            }
+        }
+        return false
+    }
+
+    let id = getQueryVariable('id')
+
+    eachSelectData(['dept' ,'posid' , 'politic' ,'nation' ,'joblevel'])
+
+    layui.use(['laydate' , 'form' ,'layer'], function(){
+        let laydate = layui.laydate;
+        let layer = layui.layer
+
+        $('.time').each(function(){
+            laydate.render({
+                elem: this ,
+                format: 'yyyy-MM-dd'
+            });
+        })
+
+        $.getJSON('emp/id/'+ id , function(result){
+            let emp = result.data
+            layui.form.val('example', {
+                "id": emp.id ,
+                "name": emp.name,
+                "gender": emp.gender,
+                "birthday": emp.birthday,
+                "politicid": emp.politicid , //注意这里是下拉框
+                "nationid": emp.nationid ,
+                "nativeplace": emp.nativeplace,
+                "address": emp.address,
+                "email": emp.email,
+                "posid": emp.posid,
+                "joblevelid": emp.joblevelid,
+                "departmentid": emp.departmentid,
+                "phone": emp.phone ,
+                "tiptopdegree": emp.tiptopdegree,
+                "school": emp.school,
+                "specialty": emp.specialty,
+                "begindate": emp.begindate, //这里是时间格式
+                "conversiontime": emp.conversiontime,
+                "begincontract": emp.begincontract,
+                "endcontract": emp.endcontract,
+                "idcard": emp.idcard,
+                "engageform": emp.engageform,
+                "wedlock": emp.wedlock
+            });
+        })
+
+
+        layui.form.on('submit(add)' , function(data){
+            let formData = JSON.stringify(data.field)
+            $.ajax({
+                type: "PUT" ,
+                url: "./emp",
+                data: formData ,
+                dataType: "json",
+                contentType: "application/json;charset=utf-8",
+                success: function(result){
+
+                    layer.alert( result.message , function(){
+                        let index = parent.layer.getFrameIndex(window.name)
+                        parent.layer.close( index )
+                    })
+
+                }, error: function(result) {
+                    layer.msg( result.message)
+                }
+            })
+        })
+
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.praysam.demo1.mapper.EmployeeMapper">
+
+<resultMap id="BaseResultMap" type="net.praysam.demo1.pojo.Employee">
+    <id column="id" jdbcType="INTEGER" property="id"/>
+    <result column="name" jdbcType="VARCHAR" property="name"/>
+    <result column="gender" jdbcType="CHAR" property="gender"/>
+    <result column="birthday" jdbcType="DATE" property="birthday"/>
+    <result column="idCard" jdbcType="CHAR" property="idcard"/>
+    <result column="wedlock" jdbcType="OTHER" property="wedlock"/>
+    <result column="nationId" jdbcType="INTEGER" property="nationid"/>
+    <result column="nativePlace" jdbcType="VARCHAR" property="nativeplace"/>
+    <result column="politicId" jdbcType="INTEGER" property="politicid"/>
+    <result column="email" jdbcType="VARCHAR" property="email"/>
+    <result column="phone" jdbcType="VARCHAR" property="phone"/>
+    <result column="address" jdbcType="VARCHAR" property="address"/>
+    <result column="departmentId" jdbcType="INTEGER" property="departmentid"/>
+    <result column="jobLevelId" jdbcType="INTEGER" property="joblevelid"/>
+    <result column="posId" jdbcType="INTEGER" property="posid"/>
+    <result column="engageForm" jdbcType="VARCHAR" property="engageform"/>
+    <result column="tiptopDegree" jdbcType="OTHER" property="tiptopdegree"/>
+    <result column="specialty" jdbcType="VARCHAR" property="specialty"/>
+    <result column="school" jdbcType="VARCHAR" property="school"/>
+    <result column="beginDate" jdbcType="DATE" property="begindate"/>
+    <result column="workState" jdbcType="OTHER" property="workstate"/>
+    <result column="workID" jdbcType="CHAR" property="workid"/>
+    <result column="contractTerm" jdbcType="DOUBLE" property="contractterm"/>
+    <result column="conversionTime" jdbcType="DATE" property="conversiontime"/>
+    <result column="notWorkDate" jdbcType="DATE" property="notworkdate"/>
+    <result column="beginContract" jdbcType="DATE" property="begincontract"/>
+    <result column="endContract" jdbcType="DATE" property="endcontract"/>
+    <result column="workAge" jdbcType="INTEGER" property="workage"/>
+    <result column="deptname" jdbcType="VARCHAR" property="deptname"/>
+    <result column="posname" jdbcType="VARCHAR" property="posname"/>
+</resultMap>
+
+    <select id="findEmpById" parameterType="java.lang.Integer" resultType="net.praysam.demo1.pojo.Employee">
+        select
+        e.id,e.workID,e.`name`,e.phone,d.`name` as deptname,p.`name` as posname,e.tiptopDegree,e.conversionTime,e.contractTerm
+        from employee as e
+        INNER JOIN department as d
+        on e.departmentId = d.id
+        INNER JOIN position as p
+        on e.posId = p.id
+        where e.id = #{id}
+    </select>
+
+    <select id="findEmpByIndex" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        e.id,e.workID,e.`name`,e.phone,d.`name` as deptname,p.`name` as posname,e.tiptopDegree,e.conversionTime,e.contractTerm
+        from employee as e
+        INNER JOIN department as d
+        on e.departmentId = d.id
+        INNER JOIN position as p
+        on e.posId = p.id
+        limit #{offset},#{numbers}
+    </select>
+</mapper>

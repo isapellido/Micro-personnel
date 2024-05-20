@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.praysam.demo1.mapper.SysResourcesMapper">
+
+
+    <select id="findAll" resultType="net.praysam.demo1.pojo.SysResources">
+	SELECT
+		sys_resources.resourceid,
+		sys_resources.`name`,
+		sys_resources.url,
+		sys_resources.permission,
+		sys_resources.type,
+		sys_resources.sort,
+		sys_resources.available
+	FROM
+		sys_resources
+
+	ORDER BY type , sort
+    </select>
+</mapper>
